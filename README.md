@@ -32,6 +32,146 @@
 #Data exploration and visualization using Tidyverse
 
 
+(3)Practical of Data collection, Data curation and management for 
+Large-scale Data system (such as MongoDB) What is Data Curation?
+Commands: 
+
+> use beginnersbookdb
+
+> db.createCollection("got3")
+
+>var abc=[ { "_id":ObjectId("59db2e73ce524b733f14dd65"), "name":"Jon Snow", "age":32  
+Insert
+
+> db.got3.insert(abc); 
+
+> db.got3.find().pretty() 
+Update 
+
+> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington"}}) 
+
+> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington"}}) 
+
+> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington","age":{$gt:30}}}) 
+
+> db.got3.find().pretty() 
+Update 
+
+> db.got3.update({"age":{$gt:30}},{$set:{"name":"Kit Harington"}}) 
+
+> db.got3.find().pretty() 
+
+> db.got3.update({"age":{$gt:30}},{$set:{"age":40}})
+
+> db.got3.find().pretty() 
+
+Multiple Update 
+> db.got3.update({"age":{$gt:30}},{$set:{"age":40},multi:true}) 
+
+> db.got3.update({"age":{$gt:30}},{$set:{"age":40}},{multi:true}) 
+
+> db.got3.find().pretty() 
+
+> db.got3.update({"age":{$gt:10}},{$set:{"name":"Devyani"}}) 
+
+> db.got3.find().pretty() 
+Find by name 
+
+> db.collection.find({"name":"Devyani"}).pretty() 
+
+> db.got3.find({"name":"Devyani"}).pretty()
+
+Update through save command
+
+> db.got3.save({"id":ObjectId("59db2e73ce524b733f14dd65"),"name":"Jon Snow","age":30}) 
+
+> db.got3.find().pretty() 
+
+> db.students.find().pretty() 
+
+Delete 
+
+> db.got3.remove({"age":20}) 
+
+> db.students.find().pretty() 
+
+> db.got3.find().pretty() 
+
+> db.got3.remove({"age":40},1) 
+
+> db.got3.find().pretty() 
+
+Remove all 
+
+> db.got.remove({}) 
+
+> db.got.find().pretty() 
+
+Find by given id or name by 0 and 1 
+
+> db.got3.find({"_id":0,"name":0,"age":0}) 
+
+> db.got3.find({},{"_id":0,"name":0,"age":0}) 
+
+> db.got3.find({},{"_id":1,"name":1,"age":1}) 
+
+> db.got3.find({},{"_id":0,"name":1,"age":1}) 
+
+> db.got3.find({},{"_id":0,"name":0,"age":0}) 
+
+> db.got3.find({},{"_id":0,"name":0,"age":0,"id":0}) 
+
+Projections
+
+> use 
+
+> db.student.find().pretty() 
+
+> db.student.find({},{"_id":0,"name":1}) 
+
+> db.student.find({},{"_id":0,"name":0,"class":1})
+
+With 1  
+
+> db.student.find({},{"_id":0,"class":1}) 
+
+> db.student.find({},{"_id":0,"rollno":0,"name":0}) 
+
+> db.student.find({},{"_id":0,"rollno":1,"name":1}) 
+
+> db.student.find({rollno: {$gt:3}}).limit().pretty() 
+
+> db.student.find({rollno: {$gt:3}}).limit(1).pretty() 
+
+> db.student.find({rollno: {$gt:3}}).limit(1).skip(1).pretty() 
+
+> db.student.find({},{"_id":0,"rollno":1}).sort({"rollno":1}) 
+
+> db.student.find({},{"_id":0,"rollno":1,"name":1}).sort({"rollno":1}) 
+
+Descending Order 
+
+> db.student.find({},{"_id":0,"rollno":1}).sort({"rollno":-1}) 
+
+> db.student.find({},{"_id":0,"rollno":1,"name":1}).sort({"name":-1}) 
+
+Creating Index 
+
+> db.student.createIndex({"name":1}) 
+
+Get All Indexes 
+
+> db.student.getIndexes() 
+
+Drop an index 
+
+> db.student.dropIndex({"name":1}) 
+
+
+Drop all Indexes 
+
+
+> db.student.dropIndexes()
 
 (4)Practical of Principal Component Analysis
 Declaring Variables 
@@ -116,7 +256,31 @@ Multiple regression
 
 
 
-(8) Logistics Regression
+(8)Practical of Logistics Regression
+*library(datasets)
+* ir_data<- iris 
+*head(ir_data)
+* str(ir_data)
+* levels(ir_data$Species)
+* sum(is.na(ir_data))
+* ir_data<-ir_data[1:100,]
+* set.seed(100)
+* samp<-sample(1:100,80) 
+*ir_test<-ir_data[samp,]
+* ir_ctrl<-ir_data[-samp,] 
+*install.packages("ggplot2")
+* library(ggplot2)
+* install.packages("GGally")
+* library(GGally) 
+*ggpairs(ir_test)
+* y<-ir_test$Species;
+* x<-ir_test$Sepal.Length
+* glfit<-glm(y~x, family = 'binomial') summary(glfit)
+* newdata<- data.frame(x=ir_ctrl$Sepal.Length) 
+*predicted_val<-predict(glfit, newdata, type="response") 
+*prediction<-data.frame(ir_ctrl$Sepal.Length, ir_ctrl$Species,predicted_val)
+* prediction
+* qplot(prediction[,1], round(prediction[,3]), col=prediction[,2], xlab = 'Sepal Length', ylab = 'Prediction using Logistic Reg.')
 
 
 
