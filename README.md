@@ -51,71 +51,72 @@ same for pc2 and pc3
 
 (5)clustering
 
-data("USArrests")   # Loading the data set
-df <- scale(USArrests) # Scaling the data
-head(df,n=3)  # View the firt 3 rows of the data
+*data("USArrests")  
+*df <- scale(USArrests) # Scaling the data
+*head(df,n=3)  # View the firt 3 rows of the data
 #create a beautiful graph of the clusters generated with the kmeans() function, will use the factoextra package
-install.packages("factoextra")  
-library(factoextra)
+*install.packages("factoextra")  
+*library(factoextra)
 #provides a convenient solution to estimate the optimal number of clusters
-fviz_nbclust(df, kmeans, method = "wss")+geom_vline(xintercept = 4, linetype = 2)
+*fviz_nbclust(df, kmeans, method = "wss")+geom_vline(xintercept = 4, linetype = 2)
 #Computing k-means clustering
-set.seed(123)   
-km.res <- kmeans(df, 4, nstart = 25)
-print(km.res)   ## Print the results
-aggregate(USArrests, by=list(cluster=km.res$cluster), mean)
-dd <- cbind(USArrests, cluster = km.res$cluster)
-head(dd)
+*set.seed(123)   
+*km.res <- kmeans(df, 4, nstart = 25)
+*print(km.res)   ## Print the results
+*aggregate(USArrests, by=list(cluster=km.res$cluster), mean)
+*dd <- cbind(USArrests, cluster = km.res$cluster)
+*head(dd)
 # Cluster number for each of the observations
-km.res$cluster
+*km.res$cluster
 head(km.res$cluster, 4)
-km.res$size   ## Cluster size
-km.res$centers
+*km.res$size   ## Cluster size
+*km.res$centers
 #Visualizing k-means clusters
-fviz_cluster(km.res, df, geom = "point", ellipse.type = "norm")
+*fviz_cluster(km.res, df, geom = "point", ellipse.type = "norm")
 ## Use hcut() which compute hclust and cut the tree
-hc.cut <- hcut(df, k = 3, hc_method = "complete") 
+*hc.cut <- hcut(df, k = 3, hc_method = "complete") 
 # Visualize dendrogram
-fviz_dend(hc.cut, show_labels = FALSE, rect = TRUE)
+*fviz_dend(hc.cut, show_labels = FALSE, rect = TRUE)
 # Visualize cluster
-fviz_cluster(hc.cut, ellipse.type = "convex")
+*fviz_cluster(hc.cut, ellipse.type = "convex")
 
 (6)time series forcasting
 
-rainfall <- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
-rainfall.timeseries <- ts(rainfall,start = c(2012,1),frequency = 12)
-print(rainfall.timeseries)
-png(file = "rainfall.png")
-plot(rainfall.timeseries)
-dev.off()
-plot(rainfall.timeseries)
+*rainfall <- c(799,1174.8,865.1,1334.6,635.4,918.5,685.5,998.6,784.2,985,882.8,1071)
+*rainfall.timeseries <- ts(rainfall,start = c(2012,1),frequency = 12)
+*print(rainfall.timeseries)
+*png(file = "rainfall.png")
+*plot(rainfall.timeseries)
+*dev.off()
+*plot(rainfall.timeseries)
 
 (7) simple/multiple regression
 
-simple== *x<-c(125,...174) 10 input of heights
+simpler regression== 
+*x<-c(125,...174) {@10 input of heights}
 *y<-c(63,58...70)  10 input of weights
 *relation<-lm(y~x)
 *print(relation)
 *print(summary(relation))
 *a<-data.frame(x=170)
 *result<-predict(relation,a)
-print(result)
+*print(result)
 
 *plot(y,x,main="height weight regression",abline(lm(x~y)),xlab="weight in kg",ylab="height in cm")
 
 Multiple regression
-input<-mtcars[c("mpg","disp","hp","wt")]
-print(head(input))
-model<-lm(mpg~disp+hp+wt,data=input)
-print(model)
-a<-coef(model)[1]
-print(a)
-b<-coef(model)[2]
-print(b)
-c<-coef(model)[3]
-print(c)
-d<-coef(model)[4]
-print(d)
+*input<-mtcars[c("mpg","disp","hp","wt")]
+*print(head(input))
+*model<-lm(mpg~disp+hp+wt,data=input)
+*print(model)
+*a<-coef(model)[1]
+*print(a)
+*b<-coef(model)[2]
+*print(b)
+*c<-coef(model)[3]
+*print(c)
+*d<-coef(model)[4]
+*print(d)
 
 
 
@@ -127,14 +128,14 @@ print(d)
 
 (9) hypothsis testing
 #one sample test
-x<-c(6.2,....11.9
-t.test(x-9, alternative="two.sided",conf.level=0.95)
+*x<-c(6.2,....11.9)
+*t.test(x-9, alternative="two.sided",conf.level=0.95)
 #two sample test
-x=c(142,... ,523)
-y=c(125,... ,521)
-test2<-t.test(x,y,alternative="two.sided",mu=0,var.equal=F,conf.level=0.95)
-test2
-#prop.test(43,100,p=.5,correct=False)
+*x=c(142,... ,523)
+*y=c(125,... ,521)
+*test2<-t.test(x,y,alternative="two.sided",mu=0,var.equal=F,conf.level=0.95)
+*test2
+*prop.test(43,100,p=.5,correct=False)
 #csv file
 set directory--*session---*set working directory)
 create csv file
@@ -143,14 +144,14 @@ create csv file
 
 
 (10)one way anova
-pain=c(4,5,....4) [15 input]
-drug=c(rep("A",5),rep("B",5),rep("C",5))
-migraine=data.frame(pain,drug)
-migraine
-plot(pain~drug,data=migraine)
-results=aov(pain~drug,data=migraine)
-summary(results)
-pairwise.t.test(pain,drug,p.adjust="bonferroni")
+*pain=c(4,5,....4) [15 input]
+*drug=c(rep("A",5),rep("B",5),rep("C",5))
+*migraine=data.frame(pain,drug)
+*migraine
+*plot(pain~drug,data=migraine)
+*results=aov(pain~drug,data=migraine)
+*summary(results)
+*pairwise.t.test(pain,drug,p.adjust="bonferroni")
 
 #TukeyHsd
 *results=aov(pain~drug,data=migraine)
