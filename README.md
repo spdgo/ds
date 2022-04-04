@@ -1,36 +1,33 @@
-# ds
-
 (1) R commands
 
 #create variable and assign data
-# x<-10
-#x
+* x<-10
+* x
 #create string 
-# myname="eric"
-#myname
+* myname="eric"
+* myname
 #using vectors and factor
-# layers<-c('pracels','streets','railroads','streams')
-# length(layers)
-# layers[3]
-# layerIds<-c(1,2,3,4)
-# combinedVector<-c(layers,layerIds)
-# combinedVector
-
+* layers<-c('pracels','streets','railroads','streams')
+* length(layers)
+* layers[3]
+* layerIds<-c(1,2,3,4)
+* combinedVector<-c(layers,layerIds)
+* combinedVector
 #mean median and mode
-> s<-c(10,20,30,40,50)
-> mean(s) > median(s)  > max(s) >min(s)
+* s<-c(10,20,30,40,50)
+* mean(s) * median(s)  * max(s) *min(s)
 #factor
-> land.type<-factor(c("residentials","commercial","commercial","agricultural"),levels = c("residentials","commercial"))
-> table(land.type)
+* land.type<-factor(c("residentials","commercial","commercial","agricultural"),levels = c("residentials","commercial"))
+* table(land.type)
 #list
-> my.list<-list("streets",2000,TRUE,"parcels")
-> my.list
+* my.list<-list("streets",2000,TRUE,"parcels")
+* my.list
 #using data classes
-> mx<-matrix(c(2,4,3,6,5,1),nrow=2,ncol=3,byrow=TRUE)
-> mx
+* mx<-matrix(c(2,4,3,6,5,1),nrow=2,ncol=3,byrow=TRUE)
+* mx
 #adding column names
-> colnames(mx)<-c("ii","io","pi")
-> mx
+* colnames(mx)<-c("ii","io","pi")
+* mx
 
 #Data exploration and visualization using Tidyverse
 
@@ -42,14 +39,14 @@ Declaring Variables
 ➢Gre <- c(1270,1600,1500,1400) 
 ➢Professorrating <- c(38,42,22,32) 
 ➢Student <- data.frame(Gpa,Gre,Professorrating) 
->Student
+*Student
 ➢data=cor(Student) 
->data
->eigen(data)
->barplot(eigen(data)$vectors)
->pc1=1stcol 1stno * Gpa+ 1stcol 2ndno * Gre+ 1stcol 3rdno*Professorrating 
+*data
+*eigen(data)
+*barplot(eigen(data)$vectors)
+*pc1=1stcol 1stno * Gpa+ 1stcol 2ndno * Gre+ 1stcol 3rdno*Professorrating 
 same for pc2 and pc3
->➢data.frame(Gpa,Gre,Professorrating,pc1) 
+*➢data.frame(Gpa,Gre,Professorrating,pc1) 
 same for pc2 and pc3
 
 (5)clustering
@@ -95,16 +92,16 @@ plot(rainfall.timeseries)
 
 (7) simple/multiple regression
 
-simple== >x<-c(125,...174) 10 input of heights
->y<-c(63,58...70)  10 input of weights
->relation<-lm(y~x)
->print(relation)
->print(summary(relation))
->a<-data.frame(x=170)
->result<-predict(relation,a)
+simple== *x<-c(125,...174) 10 input of heights
+*y<-c(63,58...70)  10 input of weights
+*relation<-lm(y~x)
+*print(relation)
+*print(summary(relation))
+*a<-data.frame(x=170)
+*result<-predict(relation,a)
 print(result)
 
->plot(y,x,main="height weight regression",abline(lm(x~y)),xlab="weight in kg",ylab="height in cm")
+*plot(y,x,main="height weight regression",abline(lm(x~y)),xlab="weight in kg",ylab="height in cm")
 
 Multiple regression
 input<-mtcars[c("mpg","disp","hp","wt")]
@@ -139,10 +136,10 @@ test2<-t.test(x,y,alternative="two.sided",mu=0,var.equal=F,conf.level=0.95)
 test2
 #prop.test(43,100,p=.5,correct=False)
 #csv file
-set directory-->session--->set working directory)
+set directory--*session---*set working directory)
 create csv file
->data<-read.table("data-tr.csv",header=True,sep=";")
->t.test(data,mu=72,alternative="greater")
+*data<-read.table("data-tr.csv",header=True,sep=";")
+*t.test(data,mu=72,alternative="greater")
 
 
 (10)one way anova
@@ -156,22 +153,22 @@ summary(results)
 pairwise.t.test(pain,drug,p.adjust="bonferroni")
 
 #TukeyHsd
->results=aov(pain~drug,data=migraine)
->TukeyHSD(results,conf.level=0.95)
+*results=aov(pain~drug,data=migraine)
+*TukeyHSD(results,conf.level=0.95)
 
 (11)Decision Tree
 install rattle packages from cran-rstudio
 rattle 3.0.2
 install package click and package archieve file and browser that file
->library("rattle"
->summary(weather)
->install.packages("rpart")
->library(rpart)
->weather2<-subset(weather,select=-c(RISK_MM))
->model<-rpart(formula=RainTomorrow ~., data=weather2, method="class")
->summary(model)
->library(rpart.plot)
->fancyRparPlot(model,main="Rain Tomorrow", sub="chapter 12")
+*library("rattle"
+*summary(weather)
+*install.packages("rpart")
+*library(rpart)
+*weather2<-subset(weather,select=-c(RISK_MM))
+*model<-rpart(formula=RainTomorrow ~., data=weather2, method="class")
+*summary(model)
+*library(rpart.plot)
+*fancyRparPlot(model,main="Rain Tomorrow", sub="chapter 12")
 
 
 
