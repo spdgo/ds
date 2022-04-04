@@ -3,18 +3,19 @@
 (1) R commands
 
 #create variable and assign data
-* x<-10
-* x
+# x<-10
+#x
 #create string 
-> -myname="eric"
-> -myname
+# myname="eric"
+#myname
 #using vectors and factor
-> layers<-c('pracels','streets','railroads','streams')
-> length(layers)
-> layers[3]
-> layerIds<-c(1,2,3,4)
-> combinedVector<-c(layers,layerIds)
-> combinedVector
+# layers<-c('pracels','streets','railroads','streams')
+# length(layers)
+# layers[3]
+# layerIds<-c(1,2,3,4)
+# combinedVector<-c(layers,layerIds)
+# combinedVector
+
 #mean median and mode
 > s<-c(10,20,30,40,50)
 > mean(s) > median(s)  > max(s) >min(s)
