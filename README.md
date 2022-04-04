@@ -3,11 +3,11 @@
 (1) R commands
 
 #create variable and assign data
-> x<-10
-> x
+* x<-10
+* x
 #create string 
-> myname="eric"
-> myname
+> -myname="eric"
+> -myname
 #using vectors and factor
 > layers<-c('pracels','streets','railroads','streams')
 > length(layers)
