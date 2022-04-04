@@ -47,7 +47,7 @@ Declaring Variables
 *pc1=1stcol 1stno * Gpa+ 1stcol 2ndno * Gre+ 1stcol 3rdno*Professorrating 
 same for pc2 and pc3
 *➢data.frame(Gpa,Gre,Professorrating,pc1) 
-same for pc2 and pc3
+*same for pc2 and pc3
 
 (5)clustering
 
@@ -66,19 +66,15 @@ same for pc2 and pc3
 *aggregate(USArrests, by=list(cluster=km.res$cluster), mean)
 *dd <- cbind(USArrests, cluster = km.res$cluster)
 *head(dd)
-# Cluster number for each of the observations
-*km.res$cluster
+*km.res$cluster  #Cluster number for each of the observations
 head(km.res$cluster, 4)
 *km.res$size   ## Cluster size
 *km.res$centers
 #Visualizing k-means clusters
 *fviz_cluster(km.res, df, geom = "point", ellipse.type = "norm")
-## Use hcut() which compute hclust and cut the tree
-*hc.cut <- hcut(df, k = 3, hc_method = "complete") 
-# Visualize dendrogram
-*fviz_dend(hc.cut, show_labels = FALSE, rect = TRUE)
-# Visualize cluster
-*fviz_cluster(hc.cut, ellipse.type = "convex")
+*hc.cut <- hcut(df, k = 3, hc_method = "complete")    #Use hcut() which compute hclust and cut the tree
+*fviz_dend(hc.cut, show_labels = FALSE, rect = TRUE)   #visualize dendogram
+*fviz_cluster(hc.cut, ellipse.type = "convex")    # Visualize cluster
 
 (6)time series forcasting
 
