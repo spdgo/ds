@@ -32,6 +32,55 @@
 #Data exploration and visualization using Tidyverse
 
 
+(2)NOSQL AND COUCHDB  nosql and couchdb Practical of Data collection, Data curation and management 
+
+>library('sofa') 
+
+>x<-Cushion$new() 
+
+>x$ping() 
+
+>db_create(x,dbname='devyani' )
+
+>version
+
+>db_list(x) 
+
+>doc1<-'{"Rollno":"01","Name":"devyani","Grade":"O"}' 
+
+>doc_create(x,doc1,dbname='devyani',docid = "a_1") 
+
+>doc2<-'{"Rollno":"02","Name":"Abc","Grade":"O"}'
+
+>doc_create(x,doc2,dbname='devyani',docid = "a_2") 
+
+>doc3<-'{"Rollno":"03","Name":"Def","Grade":"O","Remark":"Pass"}' >doc_create(x,doc3,dbname='devyani',docid = "a_3") 
+>db_changes(x,"devyani" ) 
+
+>db_query(x,dbname="devyani",selector=list('_id'=list('$gt'=NULL)))$doc
+
+>db_query(x,dbname="devyani",selector=list(Grade="O"))$doc 
+
+db_query(x,dbname="devyani",selector=list(Remark="Pass"))$docs 
+
+db_query(x,dbname="devyani",selector=list('Rollno'=list('$gt'='02')),fields = c("Name","Grade"))$docs
+
+>library(jsonlite) 
+
+>res<-db_query(x,dbname="devyani",selector=list('_id'=list('$gt'=NULL)),fields = c("Rollno","Name","Grade","Remark"),as="json") 
+
+>fromJSON(res)$docs 
+
+doc_delete(x,dbname = "devyani",docid = "a_2")
+
+doc_get(x,dbname = "devyani",docid = "a_2") 
+
+>doc2<-'{"Name":"Abc","Bear":"Test","Note","Yummy","Note2","Yay"}' 
+
+>doc_update(x,dbname = "devyani",doc=doc2,doc_id="a_3",rev="1- dcd9ae2cc689513f463046f26ca2ce8d")
+
+
+
 (3)Practical of Data collection, Data curation and management for 
 Large-scale Data system (such as MongoDB) What is Data Curation?
 Commands: 
