@@ -312,8 +312,11 @@ create csv file
 
 (10)one way anova
 *pain=c(4,5,....4) [15 input]
+
 *drug=c(rep("A",5),rep("B",5),rep("C",5))
+
 *migraine=data.frame(pain,drug)
+
 *migraine
 *plot(pain~drug,data=migraine)
 *results=aov(pain~drug,data=migraine)
