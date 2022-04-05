@@ -157,7 +157,7 @@ db.tycs.find()
 
 *update document
 
-db.tycs.update({"stname":"abc"},{$Set:{"stname":"bgf"}})
+db.tycs.update({"stname":"abc"},{$set:{"stname":"bgf"}})
 
 *delete document 
 
