@@ -278,9 +278,11 @@ Multiple regression
 * install.packages("GGally")
 * library(GGally) 
 *ggpairs(ir_test)
-* y<-ir_test$Species;
+* y<-ir_test$Species
 * x<-ir_test$Sepal.Length
-* glfit<-glm(y~x, family = 'binomial') summary(glfit)
+* glfit<-glm(y~x, family = 'binomial') 
+* 
+* summary(glfit)
 * newdata<- data.frame(x=ir_ctrl$Sepal.Length) 
 *predicted_val<-predict(glfit, newdata, type="response") 
 *prediction<-data.frame(ir_ctrl$Sepal.Length, ir_ctrl$Species,predicted_val)
