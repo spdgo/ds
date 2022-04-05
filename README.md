@@ -109,142 +109,70 @@ doc_get(x,dbname = "devyani",docid = "a_2")
 Large-scale Data system (such as MongoDB) What is Data Curation?
 Commands: 
 
-> use beginnersbookdb
+*create database
 
-> db.createCollection("got3")
+>use fycs
 
->var abc=[ { "_id":ObjectId("59db2e73ce524b733f14dd65"), "name":"Jon Snow", "age":32  
-Insert
+>db.fycs.insert({name:"abc",age:16})
 
-> db.got3.insert(abc); 
+>show dbs
 
-> db.got3.find().pretty() 
-Update 
+>db.dropDatabase()
 
-> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington"}}) 
+*create collection
 
-> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington"}}) 
+db.createCollection("tycs")
 
-> db.got3.update({"name":"Jon Snow"},{$set:{"name":"Kit Harington","age":{$gt:30}}}) 
+db.tycs.drop()
 
-> db.got3.find().pretty() 
-Update 
+*insert document again create collection then do this
 
-> db.got3.update({"age":{$gt:30}},{$set:{"name":"Kit Harington"}}) 
+db.tycs.insert({name:"abc",age:30})
 
-> db.got3.find().pretty() 
+db.tycs.find()
 
-> db.got3.update({"age":{$gt:30}},{$set:{"age":40}})
+*multiple insert document
 
-> db.got3.find().pretty() 
+>var beginner= [{"stid":2 , "stname":"xyz"} , {"stid:3 , "stname":"utv"}];
 
-Multiple Update 
-> db.got3.update({"age":{$gt:30}},{$set:{"age":40},multi:true}) 
+>db.tycs.insert(beginner);
 
-> db.got3.update({"age":{$gt:30}},{$set:{"age":40}},{multi:true}) 
+>db.tycs.find()
 
-> db.got3.find().pretty() 
+*query document
 
-> db.got3.update({"age":{$gt:10}},{$set:{"name":"Devyani"}}) 
+>db.tycs.find().pretty()
 
-> db.got3.find().pretty() 
-Find by name 
+*equality criteria
 
-> db.collection.find({"name":"Devyani"}).pretty() 
+>db.tycs.find({stname:"abc"}).pretty()
 
-> db.got3.find({"name":"Devyani"}).pretty()
+*greter thatn criteria
 
-Update through save command
+>db.tycs.find({"stid":{$gt:1}}).pretty()
 
-> db.got3.save({"id":ObjectId("59db2e73ce524b733f14dd65"),"name":"Jon Snow","age":30}) 
+*less than >$lt at same location in gt
 
-> db.got3.find().pretty() 
+*not equal to >$ne at same location in ne
 
-> db.students.find().pretty() 
+*update document
 
-Delete 
+db.tycs.update({"stname":"abc"},{$Set:{"stname":"bgf"}})
 
-> db.got3.remove({"age":20}) 
+*delete document 
 
-> db.students.find().pretty() 
+db.tycs({"stname":"bgf"})
 
-> db.got3.find().pretty() 
 
-> db.got3.remove({"age":40},1) 
+*create index
+db.tycs.createIndex({stname:1})
 
-> db.got3.find().pretty() 
+db.tycs.getIndexes()
 
-Remove all 
+db.tycs.dropIndex({stname:1})
 
-> db.got.remove({}) 
+db.tycs.dropIndex({ })
 
-> db.got.find().pretty() 
-
-Find by given id or name by 0 and 1 
-
-> db.got3.find({"_id":0,"name":0,"age":0}) 
-
-> db.got3.find({},{"_id":0,"name":0,"age":0}) 
-
-> db.got3.find({},{"_id":1,"name":1,"age":1}) 
-
-> db.got3.find({},{"_id":0,"name":1,"age":1}) 
-
-> db.got3.find({},{"_id":0,"name":0,"age":0}) 
-
-> db.got3.find({},{"_id":0,"name":0,"age":0,"id":0}) 
-
-Projections
-
-> use 
-
-> db.student.find().pretty() 
-
-> db.student.find({},{"_id":0,"name":1}) 
-
-> db.student.find({},{"_id":0,"name":0,"class":1})
-
-With 1  
-
-> db.student.find({},{"_id":0,"class":1}) 
-
-> db.student.find({},{"_id":0,"rollno":0,"name":0}) 
-
-> db.student.find({},{"_id":0,"rollno":1,"name":1}) 
-
-> db.student.find({rollno: {$gt:3}}).limit().pretty() 
-
-> db.student.find({rollno: {$gt:3}}).limit(1).pretty() 
-
-> db.student.find({rollno: {$gt:3}}).limit(1).skip(1).pretty() 
-
-> db.student.find({},{"_id":0,"rollno":1}).sort({"rollno":1}) 
-
-> db.student.find({},{"_id":0,"rollno":1,"name":1}).sort({"rollno":1}) 
-
-Descending Order 
-
-> db.student.find({},{"_id":0,"rollno":1}).sort({"rollno":-1}) 
-
-> db.student.find({},{"_id":0,"rollno":1,"name":1}).sort({"name":-1}) 
-
-Creating Index 
-
-> db.student.createIndex({"name":1}) 
-
-Get All Indexes 
-
-> db.student.getIndexes() 
-
-Drop an index 
-
-> db.student.dropIndex({"name":1}) 
-
-
-Drop all Indexes 
-
-
-> db.student.dropIndexes()
 
 (4)Practical of Principal Component Analysis
 Declaring Variables 
