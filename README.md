@@ -306,7 +306,7 @@ Multiple regression
 #csv file
 set directory--*session---*set working directory)
 create csv file
-*data<-read.table("data-tr.csv",header=True,sep=";")
+*data<-read.table("data-tr.csv",header=TRUE,sep=";")
 *t.test(data,mu=72,alternative="greater")
 
 
@@ -318,9 +318,13 @@ create csv file
 *migraine=data.frame(pain,drug)
 
 *migraine
+
 *plot(pain~drug,data=migraine)
+
 *results=aov(pain~drug,data=migraine)
+
 *summary(results)
+
 *pairwise.t.test(pain,drug,p.adjust="bonferroni")
 
 #TukeyHsd
