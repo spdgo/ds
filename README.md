@@ -320,7 +320,7 @@ create csv file and in that csv file fill-up only one column data
 
 *migraine
 
-*plot(pain~drug,data=migraine)
+*boxplot(pain~drug,data=migraine)
 
 *results=aov(pain~drug,data=migraine)
 
