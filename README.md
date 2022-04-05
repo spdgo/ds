@@ -31,6 +31,30 @@
 
 #Data exploration and visualization using Tidyverse
 
+install readr dplyr ggplot2 tidyr
+
+libray all that  
+
+set directory --> choose intro R\data 
+
+>dfCrime = read_csv(“Crime_Data.csv”, col_names = TRUE)
+
+>view(dfCrime)
+
+>dfCrime = select(dfCrime, ‘Reported Date’, ‘Crime Subcategory’, ‘Primary Offense Description’, ‘Precinct’, ‘Sector’, ‘Beat’, ‘Neighborhood’)
+
+>dfCrime2 = filter(dfCrime, Neighborhood == ‘QUEEN ANNE’)
+
+>dfCrime2 = group_by(dfCrime2, Beat)
+
+>dfCrime2 = summarise(dfCrime2, n = n())
+
+>head(dfCrime2)
+
+>ggplot(data=dfCrime2) + geom_col(mapping = aes(x=Beat, y=n), fill=”red”) 2
+
+
+
 
 (2)NOSQL AND COUCHDB  nosql and couchdb Practical of Data collection, Data curation and management 
 
