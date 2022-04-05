@@ -189,7 +189,9 @@ Declaring Variables
 *pc1=1stcol 1stno * Gpa+ 1stcol 2ndno * Gre+ 1stcol 3rdno*Professorrating 
 
 same for pc2 and pc3
+
 *➢data.frame(Gpa,Gre,Professorrating,pc1) 
+
 *same for pc2 and pc3
 
 (5)clustering
