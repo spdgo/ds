@@ -305,7 +305,8 @@ Multiple regression
 *prop.test(43,100,p=.5,correct=FALSE)
 #csv file
 set directory--*session---*set working directory)
-create csv file
+create csv file and in that csv file fill-up only one column data
+
 *data<-read.table("data-tr.csv",header=TRUE,sep=";")
 *t.test(data,mu=72,alternative="greater")
 
