@@ -302,7 +302,7 @@ Multiple regression
 *y=c(125,... ,521)
 *test2<-t.test(x,y,alternative="two.sided",mu=0,var.equal=F,conf.level=0.95)
 *test2
-*prop.test(43,100,p=.5,correct=False)
+*prop.test(43,100,p=.5,correct=FALSE)
 #csv file
 set directory--*session---*set working directory)
 create csv file
